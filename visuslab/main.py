@@ -1,14 +1,16 @@
-from visuslab.lab import VisusLab
-from visuslab.viewer import ViewerNode
-from OpenVisus import *
+from visuslab.simple import Simple
+import OpenVisus as ov
 
 
 if __name__ == '__main__':
-    SetCommandLine("__main__")
-    IdxModule.attach()
-    # VISUS_REGISTER_NODE_CLASS("visuslab.ViewerNode")
+    ov.SetCommandLine("__main__")
+    ov.IdxModule.attach()
+    ov.NodesModule.attach()
+    ov.VISUS_REGISTER_NODE_CLASS("visuslab.ViewerNode")
 
-    lab = VisusLab()
-    lab.run()
+    lab = Simple()
+    lab.load("http://atlantis.sci.utah.edu/mod_visus?dataset=david")
+    lab.start()
 
-    IdxModule.detach()
+    ov.NodesModule.detach()
+    ov.IdxModule.detach()

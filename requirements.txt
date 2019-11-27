@@ -1,5 +1,7 @@
 numpy
 OpenVisus
+itk
+itkwidgets
 
 
 
